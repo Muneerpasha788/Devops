@@ -28,7 +28,7 @@ steps:
     displayName: "Push Docker Image to GCR"
     inputs:
       command: push
-      repository: "gcr.io/fabled-alchemy-449113-b9/nginx-app:133"
+      repository: "gcr.io/fabled-alchemy-449113-b9/nginx-app"
       tags: "233"
 
   
