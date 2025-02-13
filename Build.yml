@@ -20,7 +20,6 @@ steps:
       tags: "$(IMAGE_TAG)"
   - task: Docker@2
     inputs:
-      repository: '"$(GCR_HOSTNAME)/$(GCP_PROJECT_ID)/$(IMAGE_NAME)"'
+      repository: '"$(GCR_HOSTNAME)/$(GCP_PROJECT_ID)/nginx-app:239"'
       command: 'push'
-      arguments: 'tags: "$(IMAGE_TAG)"'
   
