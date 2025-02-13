@@ -1,0 +1,13 @@
+trigger:
+- main
+
+pool:
+  name: Default  # Your self-hosted Windows agent
+
+variables:
+  GCP_PROJECT_ID: 'your-gcp-project-id'
+  IMAGE_NAME: 'nginx-app'
+  IMAGE_TAG: '$(Build.BuildId)'
+  GCR_PATH: 'gcr.io/your-gcp-project-id/nginx-app'
+steps:
+  
