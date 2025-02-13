@@ -9,12 +9,14 @@ variables:
   GCP_PROJECT_ID: 'fabled-alchemy-449113-b9'
   IMAGE_NAME: 'nginx-app'
   IMAGE_TAG: '$(Build.BuildId)'
-  GCR_PATH: 'gcr.io/fabled-alchemy-449113-b9/nginx-app'
+  GCR_HOSTNAME: 'gcr.io'
 steps:
-  - task: PowerShell@2
+  - task: Docker@2
+    displayName: "Build Docker Image"
     inputs:
-      targetType: 'inline'
-      script: |
-        gcloud auth activate-service-account --key-file=$(GCP_KEY_FILE)
-        gcloud auth configure-docker
+      command: build
+      dockerfile: 'Dockerfile'
+      repository: "$(GCR_HOSTNAME)/$(GCP_PROJECT_ID)/$(IMAGE_NAME)"
+      tags: "$(IMAGE_TAG)"
+        
   
