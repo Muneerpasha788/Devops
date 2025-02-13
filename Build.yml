@@ -18,5 +18,9 @@ steps:
       dockerfile: 'Dockerfile'
       repository: "$(GCR_HOSTNAME)/$(GCP_PROJECT_ID)/$(IMAGE_NAME)"
       tags: "$(IMAGE_TAG)"
-        
+  - task: Docker@2
+    inputs:
+      repository: '"$(GCR_HOSTNAME)/$(GCP_PROJECT_ID)/$(IMAGE_NAME)"'
+      command: 'push'
+      arguments: 'tags: "$(IMAGE_TAG)"'
   
