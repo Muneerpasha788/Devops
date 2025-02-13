@@ -6,10 +6,10 @@ pool:
   demands:
     - Agent.Name -equals Muneer
 variables:
-  GCP_PROJECT_ID: 'your-gcp-project-id'
+  GCP_PROJECT_ID: 'fabled-alchemy-449113-b9'
   IMAGE_NAME: 'nginx-app'
   IMAGE_TAG: '$(Build.BuildId)'
-  GCR_PATH: 'gcr.io/your-gcp-project-id/nginx-app'
+  GCR_PATH: 'gcr.io/fabled-alchemy-449113-b9/nginx-app'
 steps:
   - task: PowerShell@2
     inputs:
