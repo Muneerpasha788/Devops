@@ -2,8 +2,9 @@ trigger:
 - main
 
 pool:
-  name: Default  # Your self-hosted Windows agent
-
+  name: 'default'
+  demands:
+    - Agent.Name -equals Muneer
 variables:
   GCP_PROJECT_ID: 'your-gcp-project-id'
   IMAGE_NAME: 'nginx-app'
