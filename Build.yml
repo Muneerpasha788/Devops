@@ -30,6 +30,11 @@ steps:
       command: push
       repository: "gcr.io/fabled-alchemy-449113-b9/nginx-app"
       tags: "$(IMAGE_TAG)"
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: '$(Build.SourcesDirectory)'
+      Contents: '**/deployment.yaml'
+      TargetFolder: '$(Build.ArtifactStagingDirectory)'
   - task: PublishBuildArtifacts@1
     inputs:
       PathtoPublish: '$(Build.ArtifactStagingDirectory)'
