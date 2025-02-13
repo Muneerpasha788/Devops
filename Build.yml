@@ -29,6 +29,6 @@ steps:
     inputs:
       command: push
       repository: "gcr.io/fabled-alchemy-449113-b9/nginx-app"
-      tags: "233"
+      tags: "$(IMAGE_TAG)"
 
   
