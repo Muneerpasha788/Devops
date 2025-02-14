@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: gcr.io/fabled-alchemy-449113-b9/nginx-app:255
+        image: gcr.io/fabled-alchemy-449113-b9/nginx-app:latest
         ports:
         - containerPort: 80
 
