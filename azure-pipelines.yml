@@ -26,16 +26,14 @@ steps:
     msbuildLocation: 'C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe'
     platform: 'Any CPU'
     configuration: 'Release'
-    msbuildArguments: '/p:Configuration=Release'
 - task: MSBuild@1
   inputs:
-    solution: '**/*.sln'
+    solution: '**/PartsUnlimited.sln'
     msbuildLocationMethod: 'location'
     msbuildLocation: 'C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe'
     platform: 'Any CPU'
     configuration: 'Release'
-    msbuildArguments: '/p:Configuration=Release'
-    clean: true
+    msbuildArguments: '/p:Configuration=Release /p:Configuration=Release /p:OutputPath=$(Build.ArtifactStagingDirectory)'
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
