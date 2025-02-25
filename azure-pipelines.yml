@@ -19,10 +19,12 @@ steps:
     command: 'restore'
     restoreSolution: '**/*.sln'
     feedsToUse: 'select'
-- task: DotNetCoreCLI@2
+- task: MSBuild@1
   inputs:
-    command: 'build'
-    projects: '**/*.sln'
+    solution: '**/PartsUnlimited.sln'
+    platform: 'Any CPU'
+    configuration: 'Release'
+    msbuildArguments: '/p:Configuration=Release'
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
