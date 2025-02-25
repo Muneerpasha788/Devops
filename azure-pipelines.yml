@@ -27,12 +27,15 @@ steps:
     platform: 'Any CPU'
     configuration: 'Release'
     msbuildArguments: '/p:Configuration=Release'
-- task: DotNetCoreCLI@2
+- task: MSBuild@1
   inputs:
-    command: 'publish'
-    publishWebProjects: true
-    arguments: '--configuration Release --output $(Build.ArtifactStagingDirectory)'
-    zipAfterPublish: false
+    solution: '**/*.sln'
+    msbuildLocationMethod: 'location'
+    msbuildLocation: 'C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe'
+    platform: 'Any CPU'
+    configuration: 'Release'
+    msbuildArguments: '/p:Configuration=Release'
+    clean: true
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
