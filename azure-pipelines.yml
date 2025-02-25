@@ -22,6 +22,8 @@ steps:
 - task: MSBuild@1
   inputs:
     solution: '**/PartsUnlimited.sln'
+    msbuildLocationMethod: 'location'
+    msbuildLocation: 'C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe'
     platform: 'Any CPU'
     configuration: 'Release'
     msbuildArguments: '/p:Configuration=Release'
